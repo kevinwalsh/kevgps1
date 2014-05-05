@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
+	// jacks original app, combines with MyLocationListener.java
+	
 	LocationManager lManager;
 	MyLocationListener listener;
 	@Override

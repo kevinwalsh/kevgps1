@@ -9,7 +9,8 @@ import android.widget.ListView;
 
 public class Menu extends ListActivity{
 
-	String classes[] = {"MainActivity", "LocationHistory", "SendLocation", "FindLocation", "TheNewBoston_sql", "SQLExample1_activity"};
+	String classes[] = {"MainActivity", "LocationHistory", "SendLocation", "FindLocation", "TheNewBoston_sql",
+			"SQLExample1_activity", "KevLocationFinder"};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

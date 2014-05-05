@@ -7,10 +7,17 @@ import android.os.Bundle;
 //this class is what determines what happens every time we get given an updated location
 public class MyLocationListener implements LocationListener {
 	private MainActivity main;
+	
 	public MyLocationListener(MainActivity mainActivity) {
 		this.main = mainActivity;
 	}
 
+	private KevLocationFinder main2;
+	public MyLocationListener(KevLocationFinder kevLocationFinder) {
+		this.main2=kevLocationFinder;
+	}
+
+	
 	//this is the method that will get called when we get a new location
 	//all we do is make a string and send it back to the main activity, pretty simple
 	@Override
