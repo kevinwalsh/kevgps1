@@ -1,12 +1,17 @@
 package com.example.kevgps1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Point;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class KevLocationFinder extends Activity {
@@ -16,6 +21,9 @@ public class KevLocationFinder extends Activity {
 	
 	LocationManager lManager;
 	MyLocationListener listener;
+	ArrayList<Double> latList = new ArrayList<Double>();
+	//List<Point> gps = new ArrayList<Point>();			//cant use point because its int's only!!
+	
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -62,6 +70,16 @@ public class KevLocationFinder extends Activity {
 		textView.setText(newText);
 	}
 	
+	public void gpstofloat(double latitude, double longitude) {
+		TextView TVLat = (TextView) findViewById(R.id.textView2); 
+		TextView TVLong = (TextView) findViewById(R.id.textView3);
+		TVLat.setText ("now latitude as double = " + String.valueOf(latitude));
+		latList.add(latitude);
+		TVLong.setText ("average lat = " + String.valueOf(GPSStats.Avg(latList)));
+		
+	}
+	
+
 	public void setButtonActionToStart(){
 		final Button button = (Button) findViewById(R.id.button1);
 		button.setText("Start tracking");
@@ -69,7 +87,7 @@ public class KevLocationFinder extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				getLocation(0, 0);
+				getLocation(500, 1);		//	Heres where we assign vals for minTime & minDistance!!
 				setButtonActionToStop();
 			}
 		});
@@ -87,4 +105,12 @@ public class KevLocationFinder extends Activity {
 		});
 	}
 
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		latList=null;
+	}
+	
 }

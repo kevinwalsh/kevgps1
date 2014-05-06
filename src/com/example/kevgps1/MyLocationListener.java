@@ -6,15 +6,15 @@ import android.location.LocationManager;
 import android.os.Bundle;
 //this class is what determines what happens every time we get given an updated location
 public class MyLocationListener implements LocationListener {
-	private MainActivity main;
+	private MainActivity main2;
 	
 	public MyLocationListener(MainActivity mainActivity) {
-		this.main = mainActivity;
+		this.main2 = mainActivity;		//kw this is tied to old main script, i.e. jacks original. ive switched main & main2.
 	}
 
-	private KevLocationFinder main2;
+	private KevLocationFinder main;
 	public MyLocationListener(KevLocationFinder kevLocationFinder) {
-		this.main2=kevLocationFinder;
+		this.main=kevLocationFinder;
 	}
 
 	
@@ -26,12 +26,14 @@ public class MyLocationListener implements LocationListener {
 		//especially if you want to send it over a network or something
 		
 		Location l = new Location (LocationManager.GPS_PROVIDER);
-		l.setLatitude(53);
+		l.setLatitude(53); //FYI, diff of approx 0.001 = 45m 
 		l.setLongitude(-6);
 		float distanceto= location.distanceTo(l)/1000;
 		
 		String result = "Longitude: "+location.getLongitude()+", Latitude: "+location.getLatitude()+
 				", Accuracy: "+location.getAccuracy() +", dist to target: "+distanceto+" km";
+		
+		/*kw add*/ main.gpstofloat(location.getLatitude(), location.getLongitude());
 		
 		main.updateText(result);
 		

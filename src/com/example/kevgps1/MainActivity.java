@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				getLocation(0, 0);
+				getLocation(0, 0);		
 				setButtonActionToStop();
 			}
 		});
