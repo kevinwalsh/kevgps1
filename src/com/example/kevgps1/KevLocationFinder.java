@@ -3,6 +3,7 @@ package com.example.kevgps1;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.app.Activity;
@@ -22,6 +23,7 @@ public class KevLocationFinder extends Activity {
 	LocationManager lManager;
 	MyLocationListener listener;
 	ArrayList<Double> latList = new ArrayList<Double>();
+	ArrayList<Location> locationlist = new ArrayList<Location>();
 	//List<Point> gps = new ArrayList<Point>();			//cant use point because its int's only!!
 	
 	
@@ -75,7 +77,9 @@ public class KevLocationFinder extends Activity {
 		TextView TVLong = (TextView) findViewById(R.id.textView3);
 		TVLat.setText ("now latitude as double = " + String.valueOf(latitude));
 		latList.add(latitude);
-		TVLong.setText ("average lat = " + String.valueOf(GPSStats.Avg(latList)));
+		Double avg = GPSStats.Avg(latList); Double stdev = GPSStats.STDev(latList,avg);
+		TVLong.setText ("average lat = " + String.valueOf(GPSStats.Avg(latList)) +", standard deviation = " +
+				String.valueOf(GPSStats.STDev(latList, avg))+", or in metres, " +String.valueOf(GPSStats.STDev(latList, avg)));
 		
 	}
 	

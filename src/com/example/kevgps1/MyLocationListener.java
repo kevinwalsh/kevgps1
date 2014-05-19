@@ -1,5 +1,7 @@
 package com.example.kevgps1;
 
+import java.util.ArrayList;
+
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -13,8 +15,10 @@ public class MyLocationListener implements LocationListener {
 	}
 
 	private KevLocationFinder main;
+	ArrayList<Location> locationlist;		//added 19-5-14 to try store all loc's as an arraylist, and send to main class
 	public MyLocationListener(KevLocationFinder kevLocationFinder) {
 		this.main=kevLocationFinder;
+		locationlist= new ArrayList<Location>();
 	}
 
 	
@@ -36,9 +40,14 @@ public class MyLocationListener implements LocationListener {
 		/*kw add*/ main.gpstofloat(location.getLatitude(), location.getLongitude());
 		
 		main.updateText(result);
+		locationlist.add(location); 	//added JC 19-5-14
 		
 	}
 
+	public ArrayList<Location> getLocationList() {   //another addition JC 19-5-14
+		return locationlist;
+	}
+		
 	//the rest of these callbacks can be used for stuff
 	//but we're not really interested in them for now, so we leave them blank
 	@Override
