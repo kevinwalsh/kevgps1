@@ -45,7 +45,7 @@ public class KevLocationFinder extends Activity {
 	//you had traveled 5m before updating. If you set them both to zero it will update as often as possible.
 
 	public void getLocation(long minTime, float minDistance){
-		updateText("Searching for location...");
+		updateText("Searching for location...",0);		// 1 = TVChooser, ie textview 0
 		//the first of two steps to get a gps lock, to retrieve our location manager
 		//this is an object provided by the OS which acts as our gateway to the hardware
 
@@ -67,9 +67,25 @@ public class KevLocationFinder extends Activity {
 		}
 	}
 	
-	public void updateText(String newText){
-		TextView textView = (TextView) findViewById(R.id.textView0);
-		textView.setText(newText);
+	public void updateText(String newText, int TVChooser){
+		String TVSelector = "R.id.textView"+Integer.toString(TVChooser);
+		//TextView textView = (TextView) findViewById(R.id.textView0); //old, general, static! 
+		//TextView textView = (TextView) findViewById(TVSelector);	//doesnt work! online help suggests using getIdentifier!
+	
+		//int resultID= getResources().getIdentifier(TVSelector, "id", getPackageName());
+		//TextView textView = (TextView) findViewById(resultID);
+		
+		TextView textView;
+		switch (TVChooser) {
+			case 0:  textView = (TextView) findViewById(R.id.textView0); 
+			case 1:  textView = (TextView) findViewById(R.id.textView1); 
+			case 2:  textView = (TextView) findViewById(R.id.textView2); 
+			case 3:  textView = (TextView) findViewById(R.id.textView3); 
+			case 4:  textView = (TextView) findViewById(R.id.textView4); 
+			textView.setText(newText); 	//placed inside cos otherwise textView may never be initialised! error!
+		}
+		
+		
 	}
 	
 	public void gpstofloat(double latitude, double longitude) {

@@ -39,7 +39,7 @@ public class MyLocationListener implements LocationListener {
 		
 		/*kw add*/ main.gpstofloat(location.getLatitude(), location.getLongitude());
 		
-		main.updateText(result);
+		main.updateText(result,0);		//2nd arg added as a chooser for which TV to update
 		locationlist.add(location); 	//added JC 19-5-14
 		
 	}
