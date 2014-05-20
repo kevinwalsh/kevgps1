@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
 	}
 	
 	public void setButtonActionToStart(){
-		final Button button = (Button) findViewById(R.id.button1);
+		final Button button = (Button) findViewById(R.id.bStart);
 		button.setText("Start tracking");
 		button.setOnClickListener(new View.OnClickListener() {
 			
@@ -71,7 +71,7 @@ public class MainActivity extends Activity {
 		});
 	}
 	private void setButtonActionToStop(){
-		final Button button = (Button) findViewById(R.id.button1);
+		final Button button = (Button) findViewById(R.id.bStart);
 		button.setText("Stop tracking");
 		button.setOnClickListener(new View.OnClickListener() {
 			

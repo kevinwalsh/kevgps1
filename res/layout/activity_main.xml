@@ -7,33 +7,66 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
-
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/RL1"
+         >
+    
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textView0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="42dp"
         android:text="location unknown" />
-
-    <Button
-        android:id="@+id/button1"
+    
+     <Button
+        android:id="@+id/bStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="33dp"
+        android:layout_below="@+id/textView0"
         android:text="Start Tracking" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+	 <Button
+	     android:id="@+id/bClearData"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:layout_alignBaseline="@+id/bStart"
+	     android:layout_alignBottom="@+id/bStart"
+	     android:layout_toRightOf="@+id/bStart"
+	     android:layout_marginLeft="20dp"
+	     android:text="Clear Data" />
+    
+    </RelativeLayout>
+    
+    
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView2"
-        android:layout_centerVertical="true"
-        android:text="latitude as a float:" />
-
+        android:layout_below="@id/RL1" >
+		<RelativeLayout 
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content">
+	
+		<TextView
+	     android:id="@+id/textView1"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:layout_marginTop="22dp"
+	     android:layout_below="@+id/ELV1"
+	     android:text="TEST textView1" />
+		
+		<TextView
+	     android:id="@+id/textView2"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:layout_marginTop="22dp"
+	     android:layout_below="@+id/textView1"
+	     android:text="latitude as a float:" />
+    
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -43,5 +76,37 @@
         android:layout_marginLeft="18dp"
         android:layout_marginTop="20dp"
         android:text="longitude as a float: " />
+    
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView3"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="20dp"
+        android:text="textView4: " />
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView4"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="20dp"
+        android:text="textView5: " />
+	<TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView5"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="20dp"
+        android:text="textView6: " />	       
 
+	              
+	  
+	 </RelativeLayout></ScrollView>
+	 
 </RelativeLayout>

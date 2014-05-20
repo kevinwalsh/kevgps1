@@ -68,7 +68,7 @@ public class KevLocationFinder extends Activity {
 	}
 	
 	public void updateText(String newText){
-		TextView textView = (TextView) findViewById(R.id.textView1);
+		TextView textView = (TextView) findViewById(R.id.textView0);
 		textView.setText(newText);
 	}
 	
@@ -85,7 +85,7 @@ public class KevLocationFinder extends Activity {
 	
 
 	public void setButtonActionToStart(){
-		final Button button = (Button) findViewById(R.id.button1);
+		final Button button = (Button) findViewById(R.id.bStart);
 		button.setText("Start tracking");
 		button.setOnClickListener(new View.OnClickListener() {
 			
@@ -97,7 +97,7 @@ public class KevLocationFinder extends Activity {
 		});
 	}
 	private void setButtonActionToStop(){
-		final Button button = (Button) findViewById(R.id.button1);
+		final Button button = (Button) findViewById(R.id.bStart);
 		button.setText("Stop tracking");
 		button.setOnClickListener(new View.OnClickListener() {
 			
