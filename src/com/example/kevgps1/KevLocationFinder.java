@@ -77,14 +77,15 @@ public class KevLocationFinder extends Activity {
 		
 		TextView textView;
 		switch (TVChooser) {
-			case 0:  textView = (TextView) findViewById(R.id.textView0); 
-			case 1:  textView = (TextView) findViewById(R.id.textView1); 
-			case 2:  textView = (TextView) findViewById(R.id.textView2); 
-			case 3:  textView = (TextView) findViewById(R.id.textView3); 
-			case 4:  textView = (TextView) findViewById(R.id.textView4); 
-			textView.setText(newText); 	//placed inside cos otherwise textView may never be initialised! error!
+			case 0:  textView = (TextView) findViewById(R.id.textView0); break;
+			case 1:  textView = (TextView) findViewById(R.id.textView1); break;
+			case 2:  textView = (TextView) findViewById(R.id.textView2); break;
+			case 3:  textView = (TextView) findViewById(R.id.textView3); break;
+			case 4:  textView = (TextView) findViewById(R.id.textView4); break;
+			default: textView = (TextView) findViewById(R.id.textView0); newText="error in switch/case loop in kevlocationfinder";
+
 		}
-		
+		textView.setText(newText); 	//placed inside cos otherwise textView may never be initialised! error! (*edit, taken bk outside)		
 		
 	}
 	
